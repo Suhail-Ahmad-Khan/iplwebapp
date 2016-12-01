@@ -1,0 +1,11 @@
+package org.bridgelabz.iplwebapp.service;
+
+import com.ipl.model.User;
+
+public class UserService {
+
+	public void addUser(User user);
+
+	public User authUser(String email, String password);
+
+}

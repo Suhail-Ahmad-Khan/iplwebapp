@@ -1,0 +1,7 @@
+package org.bridgelabz.iplwebapp.database;
+
+import org.bridgelabz.iplwebapp.model.User;
+
+public interface UserDatabase {
+	
+}
