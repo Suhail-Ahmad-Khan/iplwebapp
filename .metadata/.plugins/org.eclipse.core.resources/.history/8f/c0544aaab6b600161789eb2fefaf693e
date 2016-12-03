@@ -1,5 +1,0 @@
-package org.bridgelabz.iplwebapp.service;
-
-public interface UserServices {
-
-}

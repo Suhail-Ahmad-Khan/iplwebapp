@@ -1,9 +1,0 @@
-package org.bridgelabz.iplwebapp.service;
-
-import org.bridgelabz.iplwebapp.model.Team;
-
-public interface TeamService {
-
-	public void addTeam(Team team);
-
-}
