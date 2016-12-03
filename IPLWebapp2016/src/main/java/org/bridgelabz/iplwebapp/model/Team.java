@@ -1,11 +1,14 @@
 package org.bridgelabz.iplwebapp.model;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+@Entity
+@Table(name = "TeamList")
 public class Team {
 
 	public Team() {
@@ -25,25 +28,19 @@ public class Team {
 	@Id
 	@GenericGenerator(name = "gene", strategy = "increment")
 	@GeneratedValue(generator = "gene")
-	@Column(name = "ID")
+
 	private int id;
 
-	@Column(name = "Team Name")
 	private String name;
 
-	@Column(name = "Coach Name")
 	private String coachName;
 
-	@Column(name = "Owner Name")
 	private String ownerName;
 
-	@Column(name = "Captain Name")
 	private String captainName;
 
-	@Column(name = "Logo")
 	private String logo;
 
-	@Column(name = "Home Venue")
 	private String homeVenue;
 
 	public int getId() {

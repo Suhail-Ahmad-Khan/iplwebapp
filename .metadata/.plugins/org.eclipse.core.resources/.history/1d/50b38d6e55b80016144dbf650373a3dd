@@ -1,0 +1,50 @@
+package org.bridgelabz.iplwebapp.controller;
+
+import java.io.FileReader;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class TeamController {
+
+	JSONParser parser = new JSONParser();
+
+	try
+	{
+		Object object = parser.parse(new FileReader(filepath));
+		JSONObject Inventory = (JSONObject) object;
+		JSONArray InvName = (JSONArray) Inventory.get("manage");
+		String[] FoodName = new String[] { "rice", "pulses", "wheat" };
+
+		for (int y = 0; y < InvName.size(); y++) {
+			JSONObject FoodGrain = (JSONObject) InvName.get(y);
+			JSONArray Food = (JSONArray) FoodGrain.get(FoodName[y]);
+			System.out.println(FoodName[y]);
+			for (int i = 0; i < Food.size(); i++) {
+				JSONObject ProductDetails = (JSONObject) Food.get(i);
+				String name = (String) ProductDetails.get("Name:");
+				System.out.format("%10s", name + "\t");
+				Double Weight = (Double) ProductDetails.get("Weight:");
+				System.out.printf(Weight + "\t");
+				Double PricePerKg = (Double) ProductDetails.get("Price per Kg:");
+				System.out.printf(PricePerKg + "\t");
+				System.out.println("");
+			}
+			System.out.println("");
+		}
+	}catch(
+	Exception e)
+	{
+		System.out.println(e);
+	}}
+
+	}
+
+	JSONParser parser1 = new JSONParser();
+
+	Object object = parser.parse(new FileReader("/home/bridgeit/TeamListIPL"));
+	JSONObject TeamManagement = (JSONObject) object;
+	JSONArray TeamList = (JSONArray) TeamManagement.get("IPLTeamList");
+String TeamNames[] ={"Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab","Kolkata Knight Riders", "Mumbai Indians", "Rising Pune Supergiants", 
+		"Royal Challengers Bangalore","Sunrisers Hyderabad"};

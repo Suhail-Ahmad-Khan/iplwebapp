@@ -33,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/bridgeit/Desktop/IPL"/>
 			<item value="/home/bridgeit/Suhail/ecplise-workspace/IPL2016 (3)"/>
 			<item value="/home/bridgeit/Suhail/ecplise-workspace/IPLWebapp"/>
 			<item value="/home/bridgeit/Suhail/ecplise-workspace/StudentEnrollmentWithSpring-master"/>

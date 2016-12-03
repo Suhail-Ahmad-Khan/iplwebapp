@@ -1,0 +1,39 @@
+package org.bridgelabz.iplwebapp.model;
+
+public class Player {
+
+	public Player() {
+
+	}
+
+	public Player(Integer id, Integer teamId, String name, String image, String role, String battingStyle,
+			String bowlingStyle, String nationality, String DOB) {
+		setId(id);
+		setTeamId(teamId);
+		setName(name);
+		setImage(image);
+		setRole(role);
+		setBattingStyle(battingStyle);
+		setBowlingStyle(bowlingStyle);
+		setNationality(nationality);
+		setDateOfBirth(DOB);
+	}
+
+	private int id;
+	private int teamId;
+	private String name;
+	private String image;
+	private String role;
+	private String battingStyle;
+	private String bowlingStyle;
+	private String nationality;
+	private String DOB;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="TeamDetails" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="itemData"/>
+			<item value="ProductDetails"/>
+			<item value="Food"/>
+			<item value="FoodGrain"/>
+			<item value="TeamName"/>
+			<item value="FoodName"/>
+			<item value="InvName"/>
+			<item value="Inventory"/>
+		</list>
+		<list key="replacehistory">
+			<item value="TeamDetails"/>
+			<item value="Teams"/>
+			<item value="TeamName"/>
+			<item value="TeamNames"/>
+			<item value="try&#x0A;&#x09;{&#x0A;&#x09;&#x09;Object object = parser.parse(new FileReader(&quot;/home/bridgeit/TeamListIPL&quot;));&#x0A;&#x09;&#x09;JSONObject Inventory = (JSONObject) object;&#x0A;&#x09;&#x09;JSONArray InvName = (JSONArray) Inventory.get(&quot;manage&quot;);&#x0A;&#x09;&#x09;String[] FoodName = new String[] { &quot;Delhi Daredevils&quot;, &quot;Gujarat Lions&quot;, &quot;Kings XI Punjab&quot;,&#x0A;&#x09;&#x09;&#x09;&#x09;&quot;Kolkata Knight Riders&quot;, &quot;Mumbai Indians&quot;, &quot;Rising Pune Supergiants&quot;, &quot;Royal Challengers Bangalore&quot;,&#x0A;&#x09;&#x09;&#x09;&#x09;&quot;Sunrisers Hyderabad&quot; };&#x0A;&#x0A;&#x09;&#x09;for (int y = 0; y &lt; InvName.size(); y++) {&#x0A;&#x09;&#x09;&#x09;JSONObject FoodGrain = (JSONObject) InvName.get(y);&#x0A;&#x09;&#x09;&#x09;JSONArray Food = (JSONArray) FoodGrain.get(FoodName[y]);&#x0A;&#x09;&#x09;&#x09;System.out.println(FoodName[y]);&#x0A;&#x09;&#x09;&#x09;for (int i = 0; i &lt; Food.size(); i++) {&#x0A;&#x09;&#x09;&#x09;&#x09;JSONObject ProductDetails = (JSONObject) Food.get(i);&#x0A;&#x09;&#x09;&#x09;&#x09;String name = (String) ProductDetails.get(&quot;Name:&quot;);&#x0A;&#x09;&#x09;&#x09;&#x09;System.out.format(&quot;%10s&quot;, name + &quot;\t&quot;);&#x0A;&#x09;&#x09;&#x09;&#x09;Double Weight = (Double) ProductDetails.get(&quot;Weight:&quot;);&#x0A;&#x09;&#x09;&#x09;&#x09;System.out.printf(Weight + &quot;\t&quot;);&#x0A;&#x09;&#x09;&#x09;&#x09;Double PricePerKg = (Do"/>
+			<item value="TeamList"/>
+			<item value="TeamManagement"/>
+			<item value="TeamData"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="338" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="434" key="DIALOG_HEIGHT"/>
+		<item value="313" key="DIALOG_X_ORIGIN"/>
+		<item value="48" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

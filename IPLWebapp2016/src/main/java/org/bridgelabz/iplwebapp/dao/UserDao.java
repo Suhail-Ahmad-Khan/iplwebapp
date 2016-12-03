@@ -1,7 +1,6 @@
 package org.bridgelabz.iplwebapp.dao;
 
 import org.bridgelabz.iplwebapp.model.User;
-import org.springframework.stereotype.Repository;
 
 public interface UserDao {
 

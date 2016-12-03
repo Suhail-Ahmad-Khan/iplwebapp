@@ -1,0 +1,33 @@
+package org.bridgelabz.iplwebapp.controller;
+
+import java.io.FileReader;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class TeamController {
+
+	JSONParser parser = new JSONParser();
+
+	Object object = parser.parse(new FileReader("/home/bridgeit/TeamListIPL"));
+	JSONObject TeamManagement = (JSONObject) object;
+	JSONArray TeamList = (JSONArray) TeamManagement.get("IPLTeamList");
+	String TeamNames[] ={ "Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab",
+				"Kolkata Knight Riders", "Mumbai Indians", "Rising Pune Supergiants", "Royal Challengers Bangalore","Sunrisers Hyderabad"};
+
+	for(
+	int y = 0;y<TeamList.size();y++)
+	{
+		JSONObject IPLTeamData = (JSONObject) TeamList.get(y);
+		JSONArray TeamData = (JSONArray) IPLTeamData.get(TeamNames[y]);
+		for (int i = 0; i < TeamData.size(); i++) {
+			JSONObject TeamDetails = (JSONObject) TeamData.get(i);
+			String coachName = (String) TeamDetails.get("team_coach");
+			String captainName = (String) TeamDetails.get("team_captain");
+			String homeVenue = (String) TeamDetails.get("team_home_venue");
+			String ownerName = (String) TeamDetails.get("team_owner");
+
+		}
+	}
+}

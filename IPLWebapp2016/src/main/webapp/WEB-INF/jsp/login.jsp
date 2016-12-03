@@ -10,18 +10,19 @@
 <body style="text-align: center">
 	<h1>Login Page</h1>
 	<center>
-		<form  action="loginPage" method="post">
+		<form action="teamList" method="post">
 			<table>
 				<tr>
 					<td><label>Enter Email:</label></td>
-					<td><input type="email"  name="email" /></td>
+					<td><input type="email" name="email" /></td>
 				</tr>
 				<tr>
 					<td><label>Enter Password:</label></td>
-					<td><input type="password"  name="password" /></td>
+					<td><input type="password" name="password" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit"  value="Submit" /></td>
+					<td><input type="submit" value="Submit" /></td>
+					<!-- <td><a href="addTeam">Addteam</a></td> -->
 				</tr>
 			</table>
 		</form>

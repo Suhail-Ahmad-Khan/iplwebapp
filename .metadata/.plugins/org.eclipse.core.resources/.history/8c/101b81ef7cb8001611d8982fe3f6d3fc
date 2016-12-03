@@ -1,0 +1,54 @@
+package org.bridgelabz.iplwebapp.controller;
+
+import java.io.FileReader;
+
+import org.bridgelabz.iplwebapp.model.Team;
+import org.bridgelabz.iplwebapp.service.TeamService;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class TeamController {
+
+	@Autowired
+	TeamService teamService;
+
+	@RequestMapping(value = "/addTeam", method = RequestMethod.GET)
+	public String addTeam() {
+		Team team = new Team();
+		JSONParser parser = new JSONParser();
+
+		try {
+			Object object = parser.parse(new FileReader("/home/bridgeit/TeamListIPL"));
+			JSONObject Inventory = (JSONObject) object;
+			JSONArray InvName = (JSONArray) Inventory.get("manage");
+			String[] FoodName = new String[] { "Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab",
+					"Kolkata Knight Riders", "Mumbai Indians", "Rising Pune Supergiants", "Royal Challengers Bangalore",
+					"Sunrisers Hyderabad" };
+
+			for (int y = 0; y < InvName.size(); y++) {
+				JSONObject FoodGrain = (JSONObject) InvName.get(y);
+				JSONArray Food = (JSONArray) FoodGrain.get(FoodName[y]);
+				System.out.println(FoodName[y]);
+				for (int i = 0; i < Food.size(); i++) {
+					JSONObject ProductDetails = (JSONObject) Food.get(i);
+					String name = (String) ProductDetails.get("Name:");
+					System.out.format("%10s", name + "\t");
+					Double Weight = (Double) ProductDetails.get("Weight:");
+					System.out.printf(Weight + "\t");
+					Double PricePerKg = (Double) ProductDetails.get("Price per Kg:");
+					System.out.printf(PricePerKg + "\t");
+					System.out.println("");
+				}
+				System.out.println("");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}

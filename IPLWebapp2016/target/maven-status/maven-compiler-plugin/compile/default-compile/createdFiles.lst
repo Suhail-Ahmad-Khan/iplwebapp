@@ -1,7 +1,7 @@
-org/bridgelabz/iplwebapp/service/impl/UserServiceImpl.class
 org/bridgelabz/iplwebapp/model/User.class
-org/bridgelabz/iplwebapp/dao/UserDao.class
 org/bridgelabz/iplwebapp/dao/impl/UserDaoImpl.class
+org/bridgelabz/iplwebapp/service/impl/UserServiceImpl.class
+org/bridgelabz/iplwebapp/dao/UserDao.class
 org/bridgelabz/iplwebapp/controller/SignupController.class
 org/bridgelabz/iplwebapp/controller/LoginController.class
 org/bridgelabz/iplwebapp/service/UserService.class

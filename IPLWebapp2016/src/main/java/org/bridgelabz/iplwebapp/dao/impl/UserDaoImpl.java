@@ -30,6 +30,7 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public User authUser(String email, String password) {
 		Session ses = sessionFactory.getCurrentSession();
 		// select * from users where userName = '' and password = '';
