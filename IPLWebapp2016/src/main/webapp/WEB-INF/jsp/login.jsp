@@ -10,7 +10,7 @@
 <body style="text-align: center">
 	<h1>Login Page</h1>
 	<center>
-		<form action="teamList" method="post">
+		<form action="loginpage" method="post">
 			<table>
 				<tr>
 					<td><label>Enter Email:</label></td>
@@ -22,7 +22,6 @@
 				</tr>
 				<tr>
 					<td><input type="submit" value="Submit" /></td>
-					<!-- <td><a href="addTeam">Addteam</a></td> -->
 				</tr>
 			</table>
 		</form>

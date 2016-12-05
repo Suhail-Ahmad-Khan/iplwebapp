@@ -7,40 +7,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Team Details</title>
+<title>Player Details</title>
 </head>
 <body>
 	<center>
-		<h1>Team Details</h1>
+		<h1>Player Details</h1>
 		<table>
 
-			<c:forEach var="team" items="${teamDetails}">
+			<c:forEach var="player" items="${playerDetails}">
 				<tr>
 					<th>Id</th>
-					<td>${team.id}</td>
+					<td>${player.id}</td>
+				</tr>
+				<tr>
+					<th>Team Id</th>
+					<td>${player.teamId}</td>
 				</tr>
 				<tr>
 					<th>Name</th>
-					<td>${team.name}</td>
+					<td>${player.name}</td>
 				</tr>
 				<tr>
-					<th>Coach</th>
-					<td>${team.coachName}</td>
+					<th>Role</th>
+					<td>${player.role}</td>
 				</tr>
 				<tr>
-					<th>Owner</th>
-					<td>${team.ownerName}</td>
+					<th>Batting Style</th>
+					<td>${player.battingStyle}</td>
 				</tr>
 				<tr>
-					<th>Captain</th>
-					<td>${team.captainName}</td>
+					<th>Bowling Style</th>
+					<td>${player.bowlingStyle}</td>
 				</tr>
 				<tr>
-					<th>Home Venue</th>
-					<td>${team.homeVenue}</td>
+					<th>Bowling Style</th>
+					<td>${player.bowlingStyle}</td>
 				</tr>
 				<tr>
-					<td><a href="<c:url value="PlayerList"/>?teamId=${team.id}">ViewPlayers</a></td>
+					<th>Nationality</th>
+					<td>${player.nationality}</td>
+				</tr>
+				<tr>
+					<th>Date Of Birth</th>
+					<td>${player.DOB}</td>
 				</tr>
 			</c:forEach>
 		</table>

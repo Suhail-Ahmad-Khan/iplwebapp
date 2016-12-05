@@ -9,7 +9,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 public class PlayerDaoImpl implements PlayerDao {
 
 	@Autowired
@@ -41,8 +45,8 @@ public class PlayerDaoImpl implements PlayerDao {
 
 	public List<Player> listPlayerDetails(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
-		Query<Player> query = session.createQuery("from Player where name=:playerName");
-		query.setParameter("playerName", id);
+		Query<Player> query = session.createQuery("from Player where id=:id");
+		query.setParameter("id", id);
 		List<Player> playerDetails = query.getResultList();
 		return playerDetails;
 	}

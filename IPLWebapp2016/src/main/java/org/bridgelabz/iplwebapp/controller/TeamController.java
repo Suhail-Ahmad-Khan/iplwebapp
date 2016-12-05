@@ -28,7 +28,7 @@ public class TeamController {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/Information.json"));
+			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/Team.json"));
 			JSONObject TeamManagement = (JSONObject) object;
 			JSONArray TeamList = (JSONArray) TeamManagement.get("teaminfo");
 			String[] TeamNames = new String[] { "DD", "GL", "KP", "KKR", "MU", "RPS", "RCB", "SH" };
@@ -37,7 +37,7 @@ public class TeamController {
 
 				JSONObject TeamName = (JSONObject) TeamList.get(y);
 				JSONArray Teams = (JSONArray) TeamName.get(TeamNames[y]);
-				System.out.println(TeamNames[y]);
+				/* System.out.println(TeamNames[y]); */
 
 				for (int i = 0; i < Teams.size(); i++) {
 
@@ -66,7 +66,7 @@ public class TeamController {
 					String logoName = (String) logoObj;
 					team.setLogo(logoName);
 					teamService.addTeam(team);
-					
+
 				}
 			}
 
@@ -76,17 +76,17 @@ public class TeamController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/teamList", method = RequestMethod.POST)
+	@RequestMapping(value = "/teamList", method = RequestMethod.GET)
 	public ModelAndView listAllTeam() {
-		List teamInfo = teamService.listAllTeams();
+		List<Team> teamInfo = teamService.listAllTeams();
 
-		return new ModelAndView("teamList", "teamInfo",teamInfo);
+		return new ModelAndView("teamList", "teamInfo", teamInfo);
 
 	}
 
 	@RequestMapping(value = "/teamDetails", method = RequestMethod.GET)
 	public ModelAndView displayTeamDetails(@RequestParam("teamName") String teamName, Model model) {
-		List teamDetails = teamService.listTeamDetails(teamName);
+		List<Team> teamDetails = teamService.listTeamDetails(teamName);
 		model.addAttribute("msg", teamName);
 		return new ModelAndView("teamDetails", "teamDetails", teamDetails);
 

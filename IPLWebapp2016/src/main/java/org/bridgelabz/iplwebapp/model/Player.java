@@ -27,38 +27,28 @@ public class Player {
 		setBattingStyle(battingStyle);
 		setBowlingStyle(bowlingStyle);
 		setNationality(nationality);
-		setDateOfBirth(DOB);
+		setDOB(DOB);
 	}
 
 	@Id
 	@GenericGenerator(name = "gene", strategy = "increment")
 	@GeneratedValue(generator = "gene")
-	@Column(name = "ID")
 	private int id;
 
-	@Id
-	@Column(name = "Team ID")
 	private int teamId;
 
-	@Column(name = "Name")
 	private String name;
 
-	@Column(name = "Image URL")
 	private String image;
 
-	@Column(name = "Role")
 	private String role;
 
-	@Column(name = "Batting Style")
 	private String battingStyle;
 
-	@Column(name = "Bowling Style")
 	private String bowlingStyle;
 
-	@Column(name = "Nationality")
 	private String nationality;
 
-	@Column(name = "Date Of Birth")
 	private String DOB;
 
 	public int getId() {
@@ -70,11 +60,11 @@ public class Player {
 	}
 
 	public int getTeamId() {
-		return id;
+		return teamId;
 	}
 
 	public void setTeamId(int teamId) {
-		this.teamId = id;
+		this.teamId = teamId;
 	}
 
 	public String getName() {
@@ -125,11 +115,11 @@ public class Player {
 		this.nationality = nationality;
 	}
 
-	public String getDateOfBirth() {
+	public String getDOB() {
 		return DOB;
 	}
 
-	public void setDateOfBirth(String DOB) {
+	public void setDOB(String DOB) {
 		this.DOB = DOB;
 	}
 }

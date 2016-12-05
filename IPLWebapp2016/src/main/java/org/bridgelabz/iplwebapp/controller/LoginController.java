@@ -20,7 +20,7 @@ public class LoginController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/loginPage", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginpage", method = RequestMethod.POST)
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
 		User user = userService.authUser(email, password);
 		// authenticate session
@@ -28,7 +28,7 @@ public class LoginController {
 		if (user == null) {
 			return "login";
 		} else {
-			return "teamList";
+			return "success";
 		}
 
 	}
