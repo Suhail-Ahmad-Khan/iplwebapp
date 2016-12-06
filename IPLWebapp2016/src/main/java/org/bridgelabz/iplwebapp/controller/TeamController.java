@@ -28,52 +28,44 @@ public class TeamController {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/Team.json"));
+			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/NewTeam.json"));
 			JSONObject TeamManagement = (JSONObject) object;
-			JSONArray TeamList = (JSONArray) TeamManagement.get("teaminfo");
-			String[] TeamNames = new String[] { "DD", "GL", "KP", "KKR", "MU", "RPS", "RCB", "SH" };
+			JSONArray TeamList = (JSONArray) TeamManagement.get("TeamList");
 
 			for (int y = 0; y < TeamList.size(); y++) {
 
-				JSONObject TeamName = (JSONObject) TeamList.get(y);
-				JSONArray Teams = (JSONArray) TeamName.get(TeamNames[y]);
-				/* System.out.println(TeamNames[y]); */
+				JSONObject TeamDetails = (JSONObject) TeamList.get(y);
+				Object nameObj = TeamDetails.get("team_name");
+				String teamName = (String) nameObj;
+				team.setName(teamName);
 
-				for (int i = 0; i < Teams.size(); i++) {
+				Object coachObj = TeamDetails.get("team_coach");
+				String coachName = (String) coachObj;
+				team.setCoachName(coachName);
 
-					JSONObject TeamDetails = (JSONObject) Teams.get(i);
-					Object nameObj = TeamDetails.get("team_name");
-					String teamName = (String) nameObj;
-					team.setName(teamName);
+				Object capatainObj = TeamDetails.get("team_captain");
+				String capatainName = (String) capatainObj;
+				team.setCaptainName(capatainName);
 
-					Object coachObj = TeamDetails.get("team_coach");
-					String coachName = (String) coachObj;
-					team.setCoachName(coachName);
+				Object venueObj = TeamDetails.get("team_home_venue");
+				String venueName = (String) venueObj;
+				team.setHomeVenue(venueName);
 
-					Object capatainObj = TeamDetails.get("team_captain");
-					String capatainName = (String) capatainObj;
-					team.setCaptainName(capatainName);
+				Object ownerObj = TeamDetails.get("team_owner");
+				String ownerName = (String) ownerObj;
+				team.setOwnerName(ownerName);
 
-					Object venueObj = TeamDetails.get("team_home_venue");
-					String venueName = (String) venueObj;
-					team.setHomeVenue(venueName);
+				Object logoObj = TeamDetails.get("team_img_url");
+				String logoName = (String) logoObj;
+				team.setLogo(logoName);
+				teamService.addTeam(team);
 
-					Object ownerObj = TeamDetails.get("team_owner");
-					String ownerName = (String) ownerObj;
-					team.setOwnerName(ownerName);
-
-					Object logoObj = TeamDetails.get("team_img_url");
-					String logoName = (String) logoObj;
-					team.setLogo(logoName);
-					teamService.addTeam(team);
-
-				}
 			}
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "login";
+		return "success";
 	}
 
 	@RequestMapping(value = "/teamList", method = RequestMethod.GET)

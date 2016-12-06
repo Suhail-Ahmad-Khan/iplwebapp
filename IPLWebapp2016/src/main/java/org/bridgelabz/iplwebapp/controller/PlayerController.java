@@ -28,67 +28,53 @@ public class PlayerController {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/Player1.json"));
+			Object object = parser.parse(new FileReader("/home/bridgeit/Desktop/NewPlayers1.json"));
 			JSONObject PlayerManagement = (JSONObject) object;
-			JSONArray PlayerList = (JSONArray) PlayerManagement.get("Playersinfo");
-			String[] PlayerNames = new String[] { "Akhil", "Amit", "Carlos", "Chama", "Imran", "Jayant", "Duminy",
-					"Karun", "Khaleel", "Mahipal", "Mayank", "Mohammed", "Nathan", "Pawan", "Pawan_Suyal", "Quinton",
-					"Pratyush", "Rishabh", "Sam", "Sanju", "Shahbaz", "Shreyas", "Zaheer", "Virat", "Varun", "Abu",
-					"Sreenath", "Samuel", "Stuart", "Yuzvendra", "AB", "Praveen", "Chris", "Travis", "Iqbal", "Kedar",
-					"Akshay", "Sarfaraz", "Vikramjeet", "Mandeep", "Adam", "Harshal", "Lokesh", "Parveez", "Kane",
-					"Sachin", "Mitchell", "Vikas", "Shane", "David", "Tabraiz", "Chris" };
+			JSONArray PlayerList = (JSONArray) PlayerManagement.get("PlayerList");
 
 			for (int y = 0; y < PlayerList.size(); y++) {
 
-				JSONObject PlayerName = (JSONObject) PlayerList.get(y);
-				JSONArray Players = (JSONArray) PlayerName.get(PlayerNames[y]);
-				/* System.out.println(PlayerNames[y]); */
+				JSONObject PlayerDetails = (JSONObject) PlayerList.get(y);
+				Object nameObj = PlayerDetails.get("player_name");
+				String playerName = (String) nameObj;
+				player.setName(playerName);
 
-				for (int i = 0; i < Players.size(); i++) {
+				Object imageObj = PlayerDetails.get("player_img_url");
+				String image = (String) imageObj;
+				player.setImage(image);
 
-					JSONObject PlayerDetails = (JSONObject) Players.get(i);
-					Object nameObj = PlayerDetails.get("player_name");
-					String playerName = (String) nameObj;
-					player.setName(playerName);
+				Object teamIdObj = PlayerDetails.get("team_id");
+				Integer teamIdName = Integer.valueOf((String) teamIdObj);
+				player.setTeamId(teamIdName);
 
-					Object imageObj = PlayerDetails.get("player_img_url");
-					String image = (String) imageObj;
-					player.setImage(image);
+				Object roleObj = PlayerDetails.get("player_role");
+				String role = (String) roleObj;
+				player.setRole(role);
 
-					Object teamIdObj = PlayerDetails.get("team_id");
-					/* Integer teamId = Integer.parseInt((String)teamIdObj); */
-					Integer teamIdName = Integer.valueOf((String) teamIdObj);
-					player.setTeamId(teamIdName);
+				Object battingStyleObj = PlayerDetails.get("player_batting_style");
+				String battingStyle = (String) battingStyleObj;
+				player.setBattingStyle(battingStyle);
 
-					Object roleObj = PlayerDetails.get("player_role");
-					String role = (String) roleObj;
-					player.setRole(role);
+				Object bowlingStyleObj = PlayerDetails.get("player_bowling_style");
+				String bowlingStyle = (String) bowlingStyleObj;
+				player.setBowlingStyle(bowlingStyle);
 
-					Object battingStyleObj = PlayerDetails.get("player_batting_style");
-					String battingStyle = (String) battingStyleObj;
-					player.setBattingStyle(battingStyle);
+				Object nationalityObj = PlayerDetails.get("player_nationality");
+				String nationality = (String) nationalityObj;
+				player.setNationality(nationality);
 
-					Object bowlingStyleObj = PlayerDetails.get("player_bowling_style");
-					String bowlingStyle = (String) bowlingStyleObj;
-					player.setBowlingStyle(bowlingStyle);
+				Object DOBObj = PlayerDetails.get("player_dob");
+				String DOB = (String) DOBObj;
+				player.setDOB(DOB);
 
-					Object nationalityObj = PlayerDetails.get("player_nationality");
-					String nationality = (String) nationalityObj;
-					player.setNationality(nationality);
+				playerService.addPlayer(player);
 
-					Object DOBObj = PlayerDetails.get("player_dob");
-					String DOB = (String) DOBObj;
-					player.setDOB(DOB);
-
-					playerService.addPlayer(player);
-
-				}
 			}
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "login";
+		return "success";
 	}
 
 	@RequestMapping(value = "/PlayerList", method = RequestMethod.GET)
@@ -102,7 +88,7 @@ public class PlayerController {
 	@RequestMapping(value = "/playerDetails", method = RequestMethod.GET)
 	public ModelAndView displayPlayerDetails(@RequestParam("id") Integer id, Model model) {
 		List<Player> playerDetails = playerService.listPlayerDetails(id);
-		/*model.addAttribute("msg", id);*/
+		/* model.addAttribute("msg", id); */
 		return new ModelAndView("playerDetails", "playerDetails", playerDetails);
 
 	}

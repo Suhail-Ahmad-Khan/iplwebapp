@@ -9,6 +9,9 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+ <mvc:annotation-driven/>
+ <mvc:resources mapping="/images/**" location="/images/" />
+ 
    
   
 <context:component-scan base-package="org.bridgelabz.iplwebapp.controller"></context:component-scan>

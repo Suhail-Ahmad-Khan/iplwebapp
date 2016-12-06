@@ -12,16 +12,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Player List</title>
 </head>
-<body>
-	<center>
-		<h4>Player List</h4>
-		<table>
-			<c:forEach var="player" items="${playerInfo}">
-				<tr>
-					<td><a href='<c:url value="playerDetails"/>?id=${player.id}'>${player.name}</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</center>
-</body>
+<center>
+	<h4>Player List</h4>
+	<c:forEach var="player" items="${playerInfo}">
+		<a href='<c:url value="playerDetails"/>?id=${player.id}'><img
+			src="${player.image}" height="225px" width="225px" /></a>
+	</c:forEach>
+</center>
 </html>
