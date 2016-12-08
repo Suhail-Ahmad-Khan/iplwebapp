@@ -8,13 +8,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Player Details</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	background-color: #f1f1c1;
+}
+</style>
 </head>
-<body>
+<body background="${pageContext.request.contextPath}/images/ipl2.jpg"
+	style="text-align: center; background-size: cover">
 	<center>
 		<h1>Player Details</h1>
-		<table>
+		<table style="width: 30%">
 
 			<c:forEach var="player" items="${playerDetails}">
+
+				<img src="${player.image}" style="border: 3px solid red;"
+					height="225px" width="225px" />
+
 				<tr>
 					<th>Id</th>
 					<td>${player.id}</td>
@@ -34,10 +46,6 @@
 				<tr>
 					<th>Batting Style</th>
 					<td>${player.battingStyle}</td>
-				</tr>
-				<tr>
-					<th>Bowling Style</th>
-					<td>${player.bowlingStyle}</td>
 				</tr>
 				<tr>
 					<th>Bowling Style</th>

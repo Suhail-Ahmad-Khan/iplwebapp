@@ -12,11 +12,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Player List</title>
 </head>
-<center>
+<body background="${pageContext.request.contextPath}/images/Lords.jpg"
+	style="text-align: center; background-size: cover">
 	<h4>Player List</h4>
 	<c:forEach var="player" items="${playerInfo}">
 		<a href='<c:url value="playerDetails"/>?id=${player.id}'><img
-			src="${player.image}" height="225px" width="225px" /></a>
+			src="${player.image}" style="border: 3px solid red;" height="225px"
+			width="225px" /></a>
 	</c:forEach>
-</center>
+</body>
 </html>

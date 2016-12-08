@@ -6,11 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>My IPL App</title>
 </head>
-
-<body style="text-align: center">
-
+<body background = "${pageContext.request.contextPath}/images/Lords.jpg" style="text-align: center; background-size:cover">
 	<h1>Welcome to IPL 2016</h1>
-	<a href="loginPage">Login</a>&nbsp;&nbsp
+	<a href="loginPage">Login</a>&nbsp;&nbsp;
 	<a href="signupPage">Sign Up</a>
 </body>
 </html>

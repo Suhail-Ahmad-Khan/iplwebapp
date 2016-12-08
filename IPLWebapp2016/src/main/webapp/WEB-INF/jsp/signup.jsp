@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Signup Page</title>
 </head>
-<body style="text-align: center">
+<body background="${pageContext.request.contextPath}/images/Lords.jpg"
+	style="text-align: center; background-size: cover">
 	<h1>Signup Page</h1>
 	<center>
 		<form:form action="signupPage" commandName="user" method="post">

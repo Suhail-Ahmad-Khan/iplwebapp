@@ -5,16 +5,31 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Team Details</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	background-color: #f1f1c1;
+}
+</style>
 </head>
-<body>
+
+
+
+<body background="${pageContext.request.contextPath}/images/ipl2.jpg"
+	style="text-align: center; background-size: cover">
 	<center>
 		<h1>Team Details</h1>
-		<table>
+		<table style="width: 30%">
 
 			<c:forEach var="team" items="${teamDetails}">
+
+				<img src="${team.logo}" height="275px" width="275px" />
+				
 				<tr>
 					<th>Id</th>
 					<td>${team.id}</td>

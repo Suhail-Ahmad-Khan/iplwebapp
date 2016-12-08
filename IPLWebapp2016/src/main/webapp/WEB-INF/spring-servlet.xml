@@ -38,13 +38,6 @@
 		<property name="minPoolSize" value="3" />
 		<property name="maxStatements" value="4" />
 	</bean>
-	
-	<!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
-		<property name="url" value="jdbc:mysql://localhost:3306/Ipl"></property>  
-		<property name="username" value="root"></property>  
-		<property name="password" value="root"></property>  
-	</bean>   -->
 
 <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="pooledDataSource" />
