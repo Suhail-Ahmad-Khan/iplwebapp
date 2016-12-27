@@ -1,5 +1,8 @@
 package org.bridgelabz.iplwebapp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.bridgelabz.iplwebapp.model.User;
 import org.bridgelabz.iplwebapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +24,32 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/loginpage", method = RequestMethod.POST)
-	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
+	public String login(@RequestParam("email") String email, @RequestParam("password") String password,HttpServletRequest request) {
 		User user = userService.authUser(email, password);
 		// authenticate session
 
 		if (user == null) {
 			return "login";
 		} else {
+			HttpSession sesion = request.getSession();
+			sesion.invalidate(); // invalidate existing session
+			
+			sesion = request.getSession();
+			sesion.setAttribute("user", user);
+			sesion.setMaxInactiveInterval(15);
+			
+			
 			return "success";
 		}
+		
+		
+	}
+	@RequestMapping(value = "/signout", method = RequestMethod.GET)
+	public String signout(HttpServletRequest request) {
+		HttpSession sesion = request.getSession();
+		sesion.invalidate();
+		sesion = request.getSession();
+		return "index";
 
 	}
-
 }
